@@ -31,16 +31,23 @@ let errores = {
 
 $(document).ready(function($) {
 	mostrarJugadoresPrecargados();
+	activarTooltips();
 	$("#btnGenerar").on("click", generarEquipos);
 	$("#btnAgregarJugador").on("click", nuevoJugador);
 });
 
+function activarTooltips(){
+	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+		return new bootstrap.Tooltip(tooltipTriggerEl)
+	})
+}
 function nuevoJugador(){
 	let nom = $("#txtNom").val();
 	let pun = $("#txtPun").val();
 	if((!isNaN(parseInt(pun)) && (pun>=1 && pun<=10))&& (nom.length>=3 && nom.length<15) ){
 		if(jugSel.length<10){
-			jugSel.push({nombre:nom,valor:pun});
+			jugSel.push({nombre:nom,valor:parseInt(pun)});
 			mostrarJugadoresSeleccionados();
 		}else{
 			alert(errores.cantMaxJugadores);
@@ -96,6 +103,14 @@ function eliminarJugador(){
 	jugSel.splice(indice, 1);
 	mostrarJugadoresPrecargados();
 	mostrarJugadoresSeleccionados();
+	if(jugSel.length ===0){
+		reiniciarTotales();
+	}
+}
+
+function reiniciarTotales(){
+	$("#totalEquipo1").html("0");
+	$("#totalEquipo2").html("0");
 }
 
 function mostrarJugadoresPrecargados(){
