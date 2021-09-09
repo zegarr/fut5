@@ -10,7 +10,7 @@ let jugPreCar = [
 {nombre : "diegoJp", valor : 7 },
 {nombre : "jp", valor : 7} ,
 {nombre : "pelado", valor : 6} ,
-{nombre : "federicoAdrian", valor : 6} ,
+{nombre : "fedeAdrian", valor : 6} ,
 {nombre : "ema", valor : 2} ,
 {nombre : "eze", valor : 5} ,
 {nombre : "piyu", valor : 5} ,
