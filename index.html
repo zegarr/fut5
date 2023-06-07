@@ -5,52 +5,65 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<title>fut5</title>
-	
+
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
 	<link rel="stylesheet" href="assets/css/styles.css">
 	<link rel="icon" type="image/png" sizes="192x192" href="assets/img/logo.png">
 </head>
+
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h1 style="text-align: center;margin: 17px;margin-bottom: 27px;"><em style="color: #888888;">fut</em><strong>5</strong></h1>
+				<h1 style="text-align: center;margin: 17px;margin-bottom: 27px;"><em
+						style="color: #888888;">fut</em><strong>5</strong></h1>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-7">
 				<div class="row mb-4">
 					<div class="col-md-8">
-						<h1 style="text-align: center;margin-bottom: 30px;margin-bottom: 0px;"><small><em>crear</em></small><strong>equipos&nbsp;</strong></h1>
+						<h1 style="text-align: center;margin-bottom: 30px;margin-bottom: 0px;">
+							<small><em>crear</em></small><strong>equipos&nbsp;</strong></h1>
 					</div>
 					<div class="col-md-4 text-center">
-						<button id="btnGenerar" class="btn btn-primary btn-sm mt-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Generar equipos aleatorios"><i class="fas fa-random"></i></button>
-						<button id="btnCrearJugador" class="btn btn-success btn-sm mt-3" type="button" data-toggle="collapse" data-target="#nuevoJug" aria-expanded="false" aria-controls="nuevoJug" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Agregar nuevo jugador"><i class="fas fa-plus"></i></button>
+						<button id="btnGenerar" class="btn btn-primary btn-sm mt-3" data-bs-toggle="tooltip"
+							data-bs-placement="bottom" title="Generar equipos aleatorios"><i
+								class="fas fa-random"></i></button>
+						<button id="btnCrearJugador" class="btn btn-success btn-sm mt-3" type="button"
+							data-toggle="collapse" data-target="#nuevoJug" aria-expanded="false"
+							aria-controls="nuevoJug" data-bs-toggle="tooltip" data-bs-placement="bottom"
+							title="Agregar nuevo jugador"><i class="fas fa-plus"></i></button>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-12 mb-3">
 						<div class="row collapse" id="nuevoJug">
-							<div class="col col-md-5">
+							<div class="col-6 col-md-5">
 								<input type="text" id="txtNom" class="form-control" placeholder="Nombre...">
 							</div>
-							<div class="col col-md-3">
+							<div class="col-4 col-md-3">
 								<input type="text" id="txtPun" class="form-control" placeholder="Puntaje...">
 							</div>
-							<div class="col col-md-2">
-								<button id="btnAgregarJugador" class="btn btn-success btn-sm mt-1" type="button" data-toggle="collapse" data-target="#nuevoJug" aria-expanded="false" aria-controls="nuevoJug"><i class="fas fa-plus"></i></button>
+							<div class="col-1 col-md-2">
+								<button id="btnAgregarJugador" class="btn btn-success btn-sm mt-1" type="button"
+									data-toggle="collapse" data-target="#nuevoJug" aria-expanded="false"
+									aria-controls="nuevoJug"><i class="fas fa-plus"></i></button>
 							</div>
 						</div>
 					</div>
 					<div class="col-6">
 						<h3 style="text-align: center;margin-bottom: 30px;"><em>equipo</em><strong>1&nbsp;</strong></h3>
-						<div class="table-responsive table-borderless" style="border-radius: 10px;border: 3px solid rgba(0,0,0,0.17);margin-top: 30px;">
+						<div class="table-responsive table-borderless"
+							style="border-radius: 10px;border: 3px solid rgba(0,0,0,0.17);margin-top: 30px;">
 							<table class="table table-striped table-bordered table-hover table-sm">
 								<thead>
 									<tr>
-										<th style="text-align: center;" data-bs-toggle="tooltip" data-bs-placement="top" title="Nombre">N</th>
-										<th style="text-align: center;" data-bs-toggle="tooltip" data-bs-placement="top" title="Puntaje">P</th>
+										<th style="text-align: center;" data-bs-toggle="tooltip" data-bs-placement="top"
+											title="Nombre">N</th>
+										<th style="text-align: center;" data-bs-toggle="tooltip" data-bs-placement="top"
+											title="Puntaje">P</th>
 										<th>&nbsp;</th>
 									</tr>
 								</thead>
@@ -58,7 +71,9 @@
 								</tbody>
 								<tfoot>
 									<tr>
-										<td colspan="3" style="text-align: center;"><h5>Total: <b id="totalEquipo1">0</b></h5></td>
+										<td colspan="3" style="text-align: center;">
+											<h5>Total: <b id="totalEquipo1">0</b></h5>
+										</td>
 									</tr>
 								</tfoot>
 							</table>
@@ -66,12 +81,15 @@
 					</div>
 					<div class="col-6 mb-3">
 						<h3 style="text-align: center;margin-bottom: 30px;"><em>equipo</em><strong>2&nbsp;</strong></h3>
-						<div class="table-responsive table-borderless" style="border-radius: 10px;border: 3px solid rgba(0,0,0,0.17);margin-top: 30px;">
+						<div class="table-responsive table-borderless"
+							style="border-radius: 10px;border: 3px solid rgba(0,0,0,0.17);margin-top: 30px;">
 							<table class="table table-striped table-bordered table-hover table-sm">
 								<thead>
 									<tr>
-										<th style="text-align: center;" data-bs-toggle="tooltip" data-bs-placement="top" title="Nombre">N</th>
-										<th style="text-align: center;" data-bs-toggle="tooltip" data-bs-placement="top" title="Nombre">P</th>
+										<th style="text-align: center;" data-bs-toggle="tooltip" data-bs-placement="top"
+											title="Nombre">N</th>
+										<th style="text-align: center;" data-bs-toggle="tooltip" data-bs-placement="top"
+											title="Nombre">P</th>
 										<th>&nbsp;</th>
 									</tr>
 								</thead>
@@ -79,17 +97,21 @@
 								</tbody>
 								<tfoot>
 									<tr>
-										<td colspan="3" style="text-align: center;"><h5>Total: <b id="totalEquipo2">0</b></h5></td>
+										<td colspan="3" style="text-align: center;">
+											<h5>Total: <b id="totalEquipo2">0</b></h5>
+										</td>
 									</tr>
 								</tfoot>
 							</table>
 						</div>
 					</div>
-				</div>				
+				</div>
 			</div>
 			<div class="col-md-5">
-				<h1 style="text-align: center;margin-bottom: 30px;"><small><em>tabla</em></small><strong>jugadores</strong></h1>
-				<div class="table-responsive table-borderless" style="border-radius: 10px;border: 3px solid rgba(0,0,0,0.17) ;">
+				<h1 style="text-align: center;margin-bottom: 30px;">
+					<small><em>tabla</em></small><strong>jugadores</strong></h1>
+				<div class="table-responsive table-borderless"
+					style="border-radius: 10px;border: 3px solid rgba(0,0,0,0.17) ;">
 					<table class="table table-striped table-bordered table-hover table-sm">
 						<thead>
 							<tr>
@@ -108,16 +130,17 @@
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/js/index.js"></script>
 	<script>
-		$(document).ready(function() {
-			$("input[type='checkbox']").on("click", function(){
+		$(document).ready(function () {
+			$("input[type='checkbox']").on("click", function () {
 				console.log("asd");
-				if($("input[type='checkbox']:checked").length == 10){
+				if ($("input[type='checkbox']:checked").length == 10) {
 					$("#btnRandom").removeAttr('hidden');
-				}else{
+				} else {
 					$("#btnRandom").attr('hidden', 'true');
 				}
 			});
 		});
 	</script>
 </body>
+
 </html>
