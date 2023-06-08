@@ -1,159 +1,161 @@
 let jugSel = [];
 let jugPreCar = [
-{nombre : "enzo", valor : 10 },
-{nombre : "pedro", valor: 9} ,
-{nombre : "adrian", valor : 7} ,
-{nombre : "rebasti", valor : 8} ,
-{nombre : "nico", valor : 7} ,
-{nombre : "tanque", valor : 7} ,
-{nombre : "ignacio", valor : 7} ,
-{nombre : "diegoJp", valor : 7 },
-{nombre : "jp", valor : 7} ,
-{nombre : "pelado", valor : 6} ,
-{nombre : "fedeAdrian", valor : 6} ,
-{nombre : "ema", valor : 2} ,
-{nombre : "eze", valor : 5} ,
-{nombre : "piyu", valor : 5} ,
-{nombre : "emiliano", valor : 5} , 
-{nombre : "botta", valor : 4} ,
-{nombre : "facuBarrios", valor : 4} ,
-{nombre : "caracas", valor : 3} ,
-{nombre : "guille", valor : 3} ,
-{nombre : "tubino", valor : 3} ,
-{nombre : "gaston", valor : 2}
+	{ nombre: "enzo", valor: 10 },
+	{ nombre: "pedro", valor: 9 },
+	{ nombre: "adrian", valor: 7 },
+	{ nombre: "rebasti", valor: 8 },
+	{ nombre: "nico", valor: 7 },
+	{ nombre: "ignacio", valor: 8 },
+	{ nombre: "diegoJp", valor: 7 },
+	{ nombre: "jp", valor: 7 },
+	{ nombre: "antony", valor: 5 },
+	{ nombre: "pelado", valor: 6 },
+	{ nombre: "eze", valor: 5 },
+	{ nombre: "felipe", valor: 8 },
+	{ nombre: "piyu", valor: 5 },
+	{ nombre: "emiliano", valor: 5 },
+	{ nombre: "botta", valor: 4 },
+	{ nombre: "facuBarrios", valor: 4 },
+	{ nombre: "caracas", valor: 2 },
+	{ nombre: "guille", valor: 4 },
+	{ nombre: "tubino", valor: 3 },
+	{ nombre: "mauri", valor: 5 },
+	{ nombre: "pablo", valor: 7 },
+	{ nombre: "fede moreno", valor: 1 }
 ];
+
 let errores = {
-	cantMaxJugadores:"Maximo 10 jugadores",
-	cantMaxNombre:"Nombre entre 3 y 15 caracteres",
-	cantMaxPuntaje:"Puntaje Entre 1 y 10",
-	faltanJugadores:"Deben ser 10 jugadores"
+	cantMaxJugadores: "Maximo 10 jugadores",
+	cantMaxNombre: "Nombre entre 3 y 15 caracteres",
+	cantMaxPuntaje: "Puntaje Entre 1 y 10",
+	faltanJugadores: "Deben ser 10 jugadores"
 };
 
-$(document).ready(function($) {
+$(document).ready(function ($) {
 	mostrarJugadoresPrecargados();
 	activarTooltips();
 	$("#btnGenerar").on("click", generarEquipos);
 	$("#btnAgregarJugador").on("click", nuevoJugador);
 });
 
-function activarTooltips(){
+function activarTooltips() {
 	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 		return new bootstrap.Tooltip(tooltipTriggerEl)
 	})
 }
-function nuevoJugador(){
+function nuevoJugador() {
 	let nom = $("#txtNom").val();
 	let pun = $("#txtPun").val();
-	if((!isNaN(parseInt(pun)) && (pun>=1 && pun<=10))&& (nom.length>=3 && nom.length<15) ){
-		if(jugSel.length<10){
-			jugSel.push({nombre:nom,valor:parseInt(pun)});
+	if ((!isNaN(parseInt(pun)) && (pun >= 1 && pun <= 10)) && (nom.length >= 3 && nom.length < 15)) {
+		if (jugSel.length < 10) {
+			jugSel.push({ nombre: nom, valor: parseInt(pun) });
 			mostrarJugadoresSeleccionados();
-		}else{
+		} else {
 			alert(errores.cantMaxJugadores);
 		}
-	}else{
+	} else {
 		alert(errores.cantMaxNombre + " y " + errores.cantMaxPuntaje);
 	}
 	$("#txtNom").val("");
 	$("#txtPun").val("");
 }
 
-function generarEquipos(){
-	if(jugSel.length == 10){
-		do{
+function generarEquipos() {
+	if (jugSel.length == 10) {
+		do {
 			var equipo1 = [];
 			var equipo2 = [];
 			let sel = jugSel.slice();//clonar para eviar referencias
-			var cantPunt1 = cantPunt2 =0;
-			for (var i = 0; i <5; i++) {
+			var cantPunt1 = cantPunt2 = 0;
+			for (var i = 0; i < 5; i++) {
 				var randomIndex = Math.floor(Math.random() * sel.length);
-				equipo1.push({nombre:sel[randomIndex].nombre,valor:sel[randomIndex].valor});//agrego a equipo1
+				equipo1.push({ nombre: sel[randomIndex].nombre, valor: sel[randomIndex].valor });//agrego a equipo1
 				cantPunt1 += sel[randomIndex].valor;
-				sel.splice(randomIndex,1);//elimino
+				sel.splice(randomIndex, 1);//elimino
 
 				randomIndex = Math.floor(Math.random() * sel.length);
-				equipo2.push({nombre:sel[randomIndex].nombre,valor:sel[randomIndex].valor});//agrego a equipo2
+				equipo2.push({ nombre: sel[randomIndex].nombre, valor: sel[randomIndex].valor });//agrego a equipo2
 				cantPunt2 += sel[randomIndex].valor;
-				sel.splice(randomIndex,1);//elimino
+				sel.splice(randomIndex, 1);//elimino
 			}
-		} while (Math.abs(cantPunt1-cantPunt1) >3);
+		} while (Math.abs(cantPunt1 - cantPunt1) > 3);
 		let res = equipo1.concat(equipo2);//uno los dos equipos
 		//muestro los equipos resultantes y el puntaje total para cada uno
 		mostrarJugadoresSeleccionados(res);
-	}else{
+	} else {
 		alert(errores.faltanJugadores)
 	}
 }
 
-function agregarJugador(){
-	if(jugSel.length<10){
+function agregarJugador() {
+	if (jugSel.length < 10) {
 		let indice = $(this).attr('j');
 		jugSel.push(jugPreCar[indice]);
 		jugPreCar.splice(indice, 1);
 		mostrarJugadoresPrecargados();
 		mostrarJugadoresSeleccionados();
-	}else{
+	} else {
 		alert(errores.cantMaxJugadores);
 	}
 }
-function eliminarJugador(){
+function eliminarJugador() {
 	let indice = $(this).attr('j');
 	jugPreCar.push(jugSel[indice]);
 	jugSel.splice(indice, 1);
 	mostrarJugadoresPrecargados();
 	mostrarJugadoresSeleccionados();
-	if(jugSel.length ===0){
+	if (jugSel.length === 0) {
 		reiniciarTotales();
 	}
 }
 
-function reiniciarTotales(){
+function reiniciarTotales() {
 	$("#totalEquipo1").html("0");
 	$("#totalEquipo2").html("0");
 }
 
-function mostrarJugadoresPrecargados(){
+function mostrarJugadoresPrecargados() {
 	$("#jugadoresPreCargados").html("");
-	jugPreCar.sort((a,b)=>{
+	jugPreCar.sort((a, b) => {
 		return b.valor - a.valor;
 	});
-	jugPreCar.forEach(function(valor, indice, array) {
-		let html='<tr>';
-		html+='<td style="text-align: center;">'+valor.nombre+'</td>';
-		html+='<td style="text-align: center;">'+valor.valor+'</td>';
-		html+='<td style="text-align: center;"><button class="btn btn-sm btn-primary agregarJugador" j="'+indice+'"><i class="fa fa-plus"></i></button></td>';
-		html+='</tr>';
+	jugPreCar.forEach(function (valor, indice, array) {
+		let html = '<tr>';
+		html += '<td style="text-align: center;">' + valor.nombre + '</td>';
+		html += '<td style="text-align: center;">' + valor.valor + '</td>';
+		html += '<td style="text-align: center;"><button class="btn btn-sm btn-primary agregarJugador" j="' + indice + '"><i class="fa fa-plus"></i></button></td>';
+		html += '</tr>';
 		$("#jugadoresPreCargados").append(html);
 	});
 	$(".agregarJugador").on("click", agregarJugador);
 }
 
-function mostrarJugadoresSeleccionados(equipos = null){
+function mostrarJugadoresSeleccionados(equipos = null) {
 	let equi = jugSel;
-	if(equipos!==null){
+	if (equipos !== null) {
 		equi = equipos;
 	}
 	$("#equipo1").html("");
 	$("#equipo2").html("");
 	//ordeno jugadores Seleccionados
 	//equi.sort((a,b)=>{return b.valor - a.valor;});
-	let pos = 0,nroE = 1;
-	let total=0;
-	equi.forEach(function(jugador, indice) {
+	let pos = 0, nroE = 1;
+	let total = 0;
+	equi.forEach(function (jugador, indice) {
 		pos++;
-		if(pos==6){
-			nroE=2;
-			total=0;
+		if (pos == 6) {
+			nroE = 2;
+			total = 0;
 		}
-		let html='<tr>';
-		html+='<td style="text-align: center;">'+jugador.nombre+'</td>';
-		html+='<td style="text-align: center;">'+jugador.valor+'</td>';
-		html+='<td style="text-align: center;"><button class="btn btn-sm btn-danger eliminarJugador" j="'+indice+'"><i class="fa fa-trash"></i></button></td>';
-		html+='</tr>';
-		$("#equipo"+nroE).append(html);
-		total+=jugador.valor
-		$("#totalEquipo"+nroE).html(total);
+		let html = '<tr>';
+		html += '<td style="text-align: center;">' + jugador.nombre + '</td>';
+		html += '<td style="text-align: center;">' + jugador.valor + '</td>';
+		html += '<td style="text-align: center;"><button class="btn btn-sm btn-danger eliminarJugador" j="' + indice + '"><i class="fa fa-trash"></i></button></td>';
+		html += '</tr>';
+		$("#equipo" + nroE).append(html);
+		total += jugador.valor
+		$("#totalEquipo" + nroE).html(total);
 	});
 	$(".eliminarJugador").on("click", eliminarJugador);
 }
