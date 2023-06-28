@@ -17,10 +17,12 @@ let jugPreCar = [
 	{ nombre: "botta", valor: 4 },
 	{ nombre: "facuBarrios", valor: 4 },
 	{ nombre: "caracas", valor: 2 },
-	{ nombre: "guille", valor: 4 },
+	{ nombre: "guille", valor: 5 },
 	{ nombre: "tubino", valor: 3 },
-	{ nombre: "mauri", valor: 5 },
+	{ nombre: "mauri", valor: 6 },
+	{ nombre: "joaquin", valor: 7 },
 	{ nombre: "pablo", valor: 7 },
+	{ nombre: "antonio", valor: 3 },
 	{ nombre: "fede moreno", valor: 1 }
 ];
 
