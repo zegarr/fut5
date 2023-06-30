@@ -1,4 +1,4 @@
-![Image](https://i.imgur.com/qojk6ZD.png)
+![Image](https://i.imgur.com/APR6wDa.png)
 
 La funcionalidad de la página web se centra en el **Generador de Equipos de F5**. Esta herramienta aprovecha los valores proporcionados de los jugadores seleccionados y, mediante un proceso aleatorio, los organiza en equipos de manera equitativa. El objetivo principal es lograr que la suma de los puntos asignados a cada equipo sea lo más balanceada posible.
 
