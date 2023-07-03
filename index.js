@@ -94,7 +94,7 @@ function generarEquipos() {
     if (jugSel.length == 10) {
         var equipo1 = [];
         var equipo2 = [];
-        let sel = jugSel.slice();//clonar para eviar referencias
+        let sel;
         var cantPunt1 = 0;
         var cantPunt2 = 0;
         var primera = true;
@@ -104,6 +104,7 @@ function generarEquipos() {
             equipo2 = [];
             cantPunt1 = 0;
             cantPunt2 = 0;
+            sel = jugSel.slice();//clonar para eviar referencias
             for (var i = 0; i < 5; i++) {
                 var randomIndex = Math.floor(Math.random() * sel.length);
                 equipo1.push({ nombre: sel[randomIndex].nombre, valor: sel[randomIndex].valor });//agrego a equipo1
@@ -115,7 +116,6 @@ function generarEquipos() {
                 cantPunt2 += sel[randomIndex].valor;
                 sel.splice(randomIndex, 1);//elimino
             }
-            console.log(Math.abs(cantPunt2 - cantPunt1));
         }
         let res = equipo1.concat(equipo2);//uno los dos equipos
         //muestro los equipos resultantes y el puntaje total para cada uno
