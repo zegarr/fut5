@@ -9,21 +9,21 @@ let jugPreCar = [
     { nombre: "diegoJp", valor: 7 },
     { nombre: "jp", valor: 7 },
     { nombre: "antony", valor: 5 },
-    { nombre: "pelado", valor: 6 },
-    { nombre: "eze", valor: 5 },
+    { nombre: "pelado", valor: 5 },
+    { nombre: "eze", valor: 6 },
     { nombre: "felipe", valor: 8 },
     { nombre: "piyu", valor: 5 },
     { nombre: "emiliano", valor: 5 },
     { nombre: "botta", valor: 4 },
     { nombre: "facuBarrios", valor: 4 },
-    { nombre: "caracas", valor: 2 },
+    { nombre: "caracas", valor: 3 },
     { nombre: "guille", valor: 5 },
     { nombre: "tubino", valor: 4 },
-    { nombre: "mauri", valor: 5 },
+    { nombre: "mauri", valor: 6 },
     { nombre: "joaquin", valor: 8 },
-    { nombre: "pablo", valor: 7 },
+    { nombre: "pablo", valor: 8 },
     { nombre: "antonio", valor: 3 },
-    { nombre: "fede moreno", valor: 1 }
+    { nombre: "fede moreno", valor: 2 }
 ];
 
 let errores = {
@@ -142,6 +142,7 @@ function agregarJugador() {
         });
     }
 }
+
 function eliminarJugador() {
     let indice = $(this).attr('j');
     jugPreCar.push(jugSel[indice]);
